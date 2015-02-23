@@ -56,6 +56,11 @@ for i, location in enumerate(locations):
     else:
         locations[i]['accessible'] = True
 
+# Add on the city and state to the location address with the intention of being geocoded for display on a map
+for i, location in enumerate(locations):
+    location['address'] += ', Chicago, IL'
+
+# Create our output CSV file
 with open(output_file, 'wb') as f:
     dict_writer = csv.DictWriter(f, fieldnames=['ward', 'precinct', 'name', 'address', 'accessible'])
     dict_writer.writeheader()

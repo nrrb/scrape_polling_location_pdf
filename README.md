@@ -28,13 +28,13 @@ Here's the first 10 lines of the CSV output file:
 
 ```csv
 ward,precinct,name,address,accessible
-1,1,Yates School,1826 N Francisco Av,True
-1,2,Iglesia De Dios,1859 N Spaulding Av,False
-1,3,Wells Community Academy,936 N Ashland Av,True
-1,4,Commercial Park,1845 W Rice St,True
-1,5,LaSalle II Magnet School,1148 N Honore St,True
-1,6,The Ogden Intrnl School/Chicago,1250 W Erie St,True
-1,7,Haas Park,2402 N Washtenaw Av,True
-1,8,Wicker Park Senior Housing,2020 W Schiller St,True
-1,9,Campbell Terrace Apartments,2061 N Campbell Av,True
+1,1,Yates School,"1826 N Francisco Av, Chicago, IL",True
+1,2,Iglesia De Dios,"1859 N Spaulding Av, Chicago, IL",False
+1,3,Wells Community Academy,"936 N Ashland Av, Chicago, IL",True
+1,4,Commercial Park,"1845 W Rice St, Chicago, IL",True
+1,5,LaSalle II Magnet School,"1148 N Honore St, Chicago, IL",True
+1,6,The Ogden Intrnl School/Chicago,"1250 W Erie St, Chicago, IL",True
+1,7,Haas Park,"2402 N Washtenaw Av, Chicago, IL",True
+1,8,Wicker Park Senior Housing,"2020 W Schiller St, Chicago, IL",True
+1,9,Campbell Terrace Apartments,"2061 N Campbell Av, Chicago, IL",True
 ```
