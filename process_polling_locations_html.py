@@ -3,14 +3,15 @@ import re
 import sys
 
 output_file = 'polling_locations.csv'
+deduplicated_csv_file = 'polling_locations-deduplicated.csv'
 
 if len(sys.argv) < 2:
     print '''Syntax:
 
 python %s <html file>
 
-This will output to '%s'.
-    ''' % (__file__, output_file)
+This will output to '%s' and '%s'.
+    ''' % (__file__, output_file, deduplicated_csv_file)
     sys.exit(1)
 
 with open(sys.argv[1], 'rb') as f:
@@ -66,3 +67,27 @@ with open(output_file, 'wb') as f:
     dict_writer.writeheader()
     dict_writer.writerows(locations)
 
+# It turns out that some locations appear multiple times, they serve as the polling place for several precincts
+# in the same ward. We'll also create a CSV that has a de-duplicated list of locations along with the wards and
+# precincts they represent.
+addresses_hash = {}
+for location in locations:
+    ward = location['ward']
+    precinct = location['precinct']
+    ward_precinct = 'ward %s precinct %s' % (ward, precinct)
+    name = location['name']
+    address = location['address']
+    accessible = location['accessible']
+    if address not in addresses_hash:
+        addresses_hash[address] = dict(accessible=accessible, name=name, address=address, wards_precincts=[ward_precinct])
+    else:
+        addresses_hash[address]['wards_precincts'].append(ward_precinct)
+
+for address, record in addresses_hash.iteritems():
+    addresses_hash[address]['wards_precincts'] = ', '.join(addresses_hash[address]['wards_precincts'])
+
+# Write these de-duplicated polling locations to a separate CSV file
+with open(deduplicated_csv_file, 'wb') as f:
+    dict_writer = csv.DictWriter(f, fieldnames=['name', 'address', 'accessible', 'wards_precincts'])
+    dict_writer.writeheader()
+    dict_writer.writerows(addresses_hash.values())
