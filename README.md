@@ -53,3 +53,7 @@ Maple Park Missionary Bapt Church,"11759 S Ashland Av, Chicago, IL",True,ward 34
 Newberry School,"700 W Willow St, Chicago, IL",True,"ward 43 precinct 5, ward 43 precinct 23"
 Draper &amp; Kramer,"1360 N Lake Shore Dr, Chicago, IL",True,ward 43 precinct 28
 ```
+
+`polling_locations.csv` is uploaded to Google Fusion Tables [here](https://www.google.com/fusiontables/DataSource?docid=1UeZgZMLEvcDi7YTEywlKzJhA3v38S2keo1XWXC7A).
+
+`polling_locations-deduplicated.csv` is uploaded to Google Fusion Tables [here](https://www.google.com/fusiontables/DataSource?docid=1rlFA0vlbJwfR5SFSSQFE_AYcbitGRSPBJ93KAYtA).
